@@ -184,10 +184,10 @@ CREATE TABLE `movimientos_bancarios` (
 
 -- Insertar usuario administrador por defecto
 INSERT INTO `usuarios` (`nombre`, `email`, `password`, `rol`, `activo`) VALUES
-('Administrador del Sistema', 'admin@erponline.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'administrador', 1),
-('Juan Pérez García', 'juan.perez@empresa.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'gerente', 1),
-('María López', 'maria.lopez@empresa.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'vendedor', 1),
-('Carlos Rodríguez', 'carlos@empresa.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'contador', 1);
+('Administrador del Sistema', 'admin@erponline.com', '$2y$10$eNaGC0JXVQJ2uwP9pLS4Ieq8J5G2aNSDNSlSZUZlnvQ4RW8YpofrG', 'administrador', 1),
+('Juan Pérez García', 'juan.perez@empresa.com', '$2y$10$eNaGC0JXVQJ2uwP9pLS4Ieq8J5G2aNSDNSlSZUZlnvQ4RW8YpofrG', 'gerente', 1),
+('María López', 'maria.lopez@empresa.com', '$2y$10$eNaGC0JXVQJ2uwP9pLS4Ieq8J5G2aNSDNSlSZUZlnvQ4RW8YpofrG', 'vendedor', 1),
+('Carlos Rodríguez', 'carlos@empresa.com', '$2y$10$eNaGC0JXVQJ2uwP9pLS4Ieq8J5G2aNSDNSlSZUZlnvQ4RW8YpofrG', 'contador', 1);
 
 -- Insertar categorías de productos
 INSERT INTO `categorias_productos` (`nombre`, `descripcion`) VALUES
@@ -263,6 +263,12 @@ CREATE INDEX idx_productos_stock_minimo ON productos(stock, stock_minimo);
 -- Base de datos creada exitosamente
 -- Contraseña por defecto para todos los usuarios de ejemplo: "secret123"
 -- Hash generado con: password_hash('secret123', PASSWORD_DEFAULT)
+
+-- NOTA IMPORTANTE:
+-- Para el desarrollo local, asegúrese de:
+-- 1. Tener Apache con mod_rewrite habilitado
+-- 2. Configurar las credenciales de base de datos en config/database.php
+-- 3. Usar las credenciales de prueba para acceder al sistema
 
 -- Para conectarse como administrador:
 -- Email: admin@erponline.com
