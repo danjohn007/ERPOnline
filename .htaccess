@@ -3,6 +3,14 @@
 
 RewriteEngine On
 
+# Regla específica para redirigir /login con success=true a /dashboard
+RewriteCond %{REQUEST_URI} ^/login$
+RewriteCond %{QUERY_STRING} success=true
+RewriteRule ^login$ /dashboard [R=302,L]
+
+# Redirigir /login a /auth/login para compatibilidad
+RewriteRule ^login$ /auth/login [R=302,L]
+
 # Redirigir todo el tráfico a index.php excepto archivos existentes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
