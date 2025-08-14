@@ -21,26 +21,42 @@ require_once APP_PATH . '/controllers/BaseController.php';
 // Iniciar sesión
 session_start();
 
-// Enrutamiento simple
-$request = $_SERVER['REQUEST_URI'];
-$path = parse_url($request, PHP_URL_PATH);
-$path = trim($path, '/');
+// Calcular la ruta base de la aplicación
+$scriptName = $_SERVER['SCRIPT_NAME'];
+$requestUri = $_SERVER['REQUEST_URI'];
 
-// Remover el directorio base si existe
-$scriptName = dirname($_SERVER['SCRIPT_NAME']);
-if ($scriptName !== '/') {
-    $path = str_replace(ltrim($scriptName, '/'), '', $path);
-    $path = ltrim($path, '/');
+// Obtener el directorio base donde está instalada la aplicación
+$basePath = dirname($scriptName);
+if ($basePath === '/' || $basePath === '\\') {
+    $basePath = '';
 }
 
-// Parsear la URL
+// Definir la ruta base como constante global
+define('BASE_PATH', $basePath);
+
+// Función helper global para generar URLs
+function url($path) {
+    return BASE_PATH . $path;
+}
+
+// Obtener la ruta solicitada
+$requestPath = parse_url($requestUri, PHP_URL_PATH);
+
+// Remover la ruta base de la ruta solicitada
+if ($basePath && strpos($requestPath, $basePath) === 0) {
+    $requestPath = substr($requestPath, strlen($basePath));
+}
+
+// Limpiar y parsear la ruta
+$path = trim($requestPath, '/');
 $segments = empty($path) ? [] : explode('/', $path);
 $controller = !empty($segments[0]) ? $segments[0] : 'dashboard';
 $action = !empty($segments[1]) ? $segments[1] : 'index';
 
 // Verificar autenticación para páginas protegidas
 if ($controller !== 'auth' && !isset($_SESSION['user_id'])) {
-    header('Location: /auth/login');
+    $loginUrl = BASE_PATH . '/auth/login';
+    header('Location: ' . $loginUrl);
     exit;
 }
 
