@@ -21,8 +21,13 @@ require_once APP_PATH . '/controllers/BaseController.php';
 // Iniciar sesión
 session_start();
 
+// Detectar la ruta base del proyecto
+$requestUri = $_SERVER['REQUEST_URI'];
+$scriptName = $_SERVER['SCRIPT_NAME'];
+$basePath = rtrim(dirname($scriptName), '/');
+if ($basePath === '.') {
+    $basePath = '';
 }
-$path = trim($path, '/');
 
 // Definir la ruta base como constante global
 define('BASE_PATH', $basePath);
@@ -48,6 +53,7 @@ $action = !empty($segments[1]) ? $segments[1] : 'index';
 
 // Verificar autenticación para páginas protegidas
 if ($controller !== 'auth' && !isset($_SESSION['user_id'])) {
+    header('Location: ' . BASE_PATH . '/auth/login');
     exit;
 }
 

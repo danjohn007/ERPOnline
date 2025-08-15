@@ -70,7 +70,7 @@ ob_start();
                     
                     <div class="text-center">
                         <p class="mb-0">¿No tienes cuenta?</p>
-                        <a href="/auth/register" class="btn btn-outline-primary">
+                        <a href="<?= url('/auth/register') ?>" class="btn btn-outline-primary">
                             <i class="fas fa-user-plus me-2"></i>
                             Registrarse
                         </a>

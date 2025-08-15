@@ -106,7 +106,7 @@ ob_start();
                     
                     <div class="text-center">
                         <p class="mb-0">¿Ya tienes cuenta?</p>
-                        <a href="/auth/login" class="btn btn-outline-primary">
+                        <a href="<?= url('/auth/login') ?>" class="btn btn-outline-primary">
                             <i class="fas fa-sign-in-alt me-2"></i>
                             Iniciar Sesión
                         </a>

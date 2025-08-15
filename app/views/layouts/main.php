@@ -129,7 +129,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/dashboard">
+            <a class="navbar-brand" href="<?= url('/dashboard') ?>">
                 <i class="fas fa-chart-line me-2"></i>
                 ERP Online
             </a>
@@ -146,8 +146,8 @@
                             <?= $_SESSION['user_name'] ?? 'Usuario' ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/users/profile"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="/auth/logout"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                            <li><a class="dropdown-item" href="<?= url('/users/profile') ?>"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
+                            <li><a class="dropdown-item" href="<?= url('/auth/logout') ?>"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -162,55 +162,55 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'dashboard' ? 'active' : '' ?>" href="/dashboard">
+                            <a class="nav-link <?= ($current_page ?? '') == 'dashboard' ? 'active' : '' ?>" href="<?= url('/dashboard') ?>">
                                 <i class="fas fa-tachometer-alt me-2"></i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'customers' ? 'active' : '' ?>" href="/customers">
+                            <a class="nav-link <?= ($current_page ?? '') == 'customers' ? 'active' : '' ?>" href="<?= url('/customers') ?>">
                                 <i class="fas fa-users me-2"></i>
                                 Clientes
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'suppliers' ? 'active' : '' ?>" href="/suppliers">
+                            <a class="nav-link <?= ($current_page ?? '') == 'suppliers' ? 'active' : '' ?>" href="<?= url('/suppliers') ?>">
                                 <i class="fas fa-truck me-2"></i>
                                 Proveedores
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'warehouse' ? 'active' : '' ?>" href="/warehouse">
+                            <a class="nav-link <?= ($current_page ?? '') == 'warehouse' ? 'active' : '' ?>" href="<?= url('/warehouse') ?>">
                                 <i class="fas fa-warehouse me-2"></i>
                                 Almacén
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'banks' ? 'active' : '' ?>" href="/banks">
+                            <a class="nav-link <?= ($current_page ?? '') == 'banks' ? 'active' : '' ?>" href="<?= url('/banks') ?>">
                                 <i class="fas fa-university me-2"></i>
                                 Bancos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'accounting' ? 'active' : '' ?>" href="/accounting">
+                            <a class="nav-link <?= ($current_page ?? '') == 'accounting' ? 'active' : '' ?>" href="<?= url('/accounting') ?>">
                                 <i class="fas fa-calculator me-2"></i>
                                 Contabilidad
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'payroll' ? 'active' : '' ?>" href="/payroll">
+                            <a class="nav-link <?= ($current_page ?? '') == 'payroll' ? 'active' : '' ?>" href="<?= url('/payroll') ?>">
                                 <i class="fas fa-users-cog me-2"></i>
                                 Nómina/RRHH
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'bi' ? 'active' : '' ?>" href="/bi">
+                            <a class="nav-link <?= ($current_page ?? '') == 'bi' ? 'active' : '' ?>" href="<?= url('/bi') ?>">
                                 <i class="fas fa-chart-bar me-2"></i>
                                 Business Intelligence
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= ($current_page ?? '') == 'ecommerce' ? 'active' : '' ?>" href="/ecommerce">
+                            <a class="nav-link <?= ($current_page ?? '') == 'ecommerce' ? 'active' : '' ?>" href="<?= url('/ecommerce') ?>">
                                 <i class="fas fa-shopping-cart me-2"></i>
                                 E-Commerce
                             </a>
