@@ -21,17 +21,18 @@ require_once APP_PATH . '/controllers/BaseController.php';
 // Iniciar sesión
 session_start();
 
-// Enrutamiento simple
-$request = $_SERVER['REQUEST_URI'];
-$path = parse_url($request, PHP_URL_PATH);
-$path = trim($path, '/');
+// Obtener la ruta base (subcarpeta, si aplica)
+$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
-// Remover el directorio base si existe
-$scriptName = dirname($_SERVER['SCRIPT_NAME']);
-if ($scriptName !== '/') {
-    $path = str_replace(ltrim($scriptName, '/'), '', $path);
-    $path = ltrim($path, '/');
+// Obtener la ruta solicitada
+$requestUri = $_SERVER['REQUEST_URI'];
+$path = parse_url($requestUri, PHP_URL_PATH);
+
+// Eliminar el basePath de la ruta si existe
+if ($basePath && strpos($path, $basePath) === 0) {
+    $path = substr($path, strlen($basePath));
 }
+$path = trim($path, '/');
 
 // Parsear la URL
 $segments = empty($path) ? [] : explode('/', $path);
@@ -40,7 +41,7 @@ $action = !empty($segments[1]) ? $segments[1] : 'index';
 
 // Verificar autenticación para páginas protegidas
 if ($controller !== 'auth' && !isset($_SESSION['user_id'])) {
-    header('Location: /auth/login');
+    header('Location: ' . ($basePath ? $basePath : '') . '/auth/login');
     exit;
 }
 
