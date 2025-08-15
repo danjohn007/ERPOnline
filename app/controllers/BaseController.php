@@ -29,8 +29,21 @@ class BaseController {
      * Redirigir a una URL
      */
     protected function redirect($url) {
+        // Si es una URL relativa, agregar la ruta base
+        if (substr($url, 0, 1) === '/' && !preg_match('/^https?:\/\//', $url)) {
+            $basePath = defined('BASE_PATH') ? BASE_PATH : '';
+            $url = $basePath . $url;
+        }
         header("Location: $url");
         exit;
+    }
+    
+    /**
+     * Generar URL con ruta base
+     */
+    protected function url($path) {
+        $basePath = defined('BASE_PATH') ? BASE_PATH : '';
+        return $basePath . $path;
     }
     
     /**
