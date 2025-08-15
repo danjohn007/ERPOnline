@@ -21,27 +21,33 @@ require_once APP_PATH . '/controllers/BaseController.php';
 // Iniciar sesión
 session_start();
 
-// Obtener la ruta base (subcarpeta, si aplica)
-$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
-
-// Obtener la ruta solicitada
-$requestUri = $_SERVER['REQUEST_URI'];
-$path = parse_url($requestUri, PHP_URL_PATH);
-
-// Eliminar el basePath de la ruta si existe
-if ($basePath && strpos($path, $basePath) === 0) {
-    $path = substr($path, strlen($basePath));
 }
 $path = trim($path, '/');
 
-// Parsear la URL
+// Definir la ruta base como constante global
+define('BASE_PATH', $basePath);
+
+// Función helper global para generar URLs
+function url($path) {
+    return BASE_PATH . $path;
+}
+
+// Obtener la ruta solicitada
+$requestPath = parse_url($requestUri, PHP_URL_PATH);
+
+// Remover la ruta base de la ruta solicitada
+if ($basePath && strpos($requestPath, $basePath) === 0) {
+    $requestPath = substr($requestPath, strlen($basePath));
+}
+
+// Limpiar y parsear la ruta
+$path = trim($requestPath, '/');
 $segments = empty($path) ? [] : explode('/', $path);
 $controller = !empty($segments[0]) ? $segments[0] : 'dashboard';
 $action = !empty($segments[1]) ? $segments[1] : 'index';
 
 // Verificar autenticación para páginas protegidas
 if ($controller !== 'auth' && !isset($_SESSION['user_id'])) {
-    header('Location: ' . ($basePath ? $basePath : '') . '/auth/login');
     exit;
 }
 

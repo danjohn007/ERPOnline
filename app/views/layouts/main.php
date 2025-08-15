@@ -186,31 +186,31 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link <?= ($current_page ?? '') == 'banks' ? 'active' : '' ?>" href="/banks">
                                 <i class="fas fa-university me-2"></i>
                                 Bancos
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link <?= ($current_page ?? '') == 'accounting' ? 'active' : '' ?>" href="/accounting">
                                 <i class="fas fa-calculator me-2"></i>
                                 Contabilidad
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link <?= ($current_page ?? '') == 'payroll' ? 'active' : '' ?>" href="/payroll">
                                 <i class="fas fa-users-cog me-2"></i>
                                 Nómina/RRHH
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link <?= ($current_page ?? '') == 'bi' ? 'active' : '' ?>" href="/bi">
                                 <i class="fas fa-chart-bar me-2"></i>
                                 Business Intelligence
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link <?= ($current_page ?? '') == 'ecommerce' ? 'active' : '' ?>" href="/ecommerce">
                                 <i class="fas fa-shopping-cart me-2"></i>
                                 E-Commerce
                             </a>
