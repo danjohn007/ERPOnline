@@ -21,15 +21,8 @@ require_once APP_PATH . '/controllers/BaseController.php';
 // Iniciar sesión
 session_start();
 
-// Calcular la ruta base de la aplicación
-$scriptName = $_SERVER['SCRIPT_NAME'];
-$requestUri = $_SERVER['REQUEST_URI'];
-
-// Obtener el directorio base donde está instalada la aplicación
-$basePath = dirname($scriptName);
-if ($basePath === '/' || $basePath === '\\') {
-    $basePath = '';
 }
+$path = trim($path, '/');
 
 // Definir la ruta base como constante global
 define('BASE_PATH', $basePath);
@@ -55,8 +48,6 @@ $action = !empty($segments[1]) ? $segments[1] : 'index';
 
 // Verificar autenticación para páginas protegidas
 if ($controller !== 'auth' && !isset($_SESSION['user_id'])) {
-    $loginUrl = BASE_PATH . '/auth/login';
-    header('Location: ' . $loginUrl);
     exit;
 }
 
