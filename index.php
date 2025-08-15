@@ -53,6 +53,7 @@ $action = !empty($segments[1]) ? $segments[1] : 'index';
 
 // Verificar autenticación para páginas protegidas
 if ($controller !== 'auth' && !isset($_SESSION['user_id'])) {
+    header('Location: ' . BASE_PATH . '/auth/login');
     exit;
 }
 

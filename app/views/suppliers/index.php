@@ -25,7 +25,7 @@ ob_start();
         <p class="text-muted">Administre la información de sus proveedores y socios comerciales</p>
     </div>
     <div class="col-md-4 text-end">
-        <a href="/suppliers/create" class="btn btn-success">
+        <a href="<?= url('/suppliers/create') ?>" class="btn btn-success">
             <i class="fas fa-plus me-2"></i>
             Nuevo Proveedor
         </a>
@@ -45,7 +45,7 @@ ob_start();
                 <i class="fas fa-search"></i>
             </button>
             <?php if ($search): ?>
-                <a href="/suppliers" class="btn btn-outline-secondary ms-2">
+                <a href="<?= url('/suppliers') ?>" class="btn btn-outline-secondary ms-2">
                     <i class="fas fa-times"></i>
                 </a>
             <?php endif; ?>
@@ -161,12 +161,12 @@ ob_start();
                                 </td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a href="/suppliers/view?id=<?= $supplier['id'] ?>" 
+                                        <a href="<?= url('/suppliers/view?id=' . $supplier['id']) ?>" 
                                            class="btn btn-outline-info" 
                                            title="Ver detalles">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="/suppliers/edit?id=<?= $supplier['id'] ?>" 
+                                        <a href="<?= url('/suppliers/edit?id=' . $supplier['id']) ?>" 
                                            class="btn btn-outline-primary" 
                                            title="Editar">
                                             <i class="fas fa-edit"></i>
@@ -195,7 +195,7 @@ ob_start();
                         Comience agregando su primer proveedor al sistema.
                     <?php endif; ?>
                 </p>
-                <a href="/suppliers/create" class="btn btn-success">
+                <a href="<?= url('/suppliers/create') ?>" class="btn btn-success">
                     <i class="fas fa-plus me-2"></i>
                     Agregar Primer Proveedor
                 </a>

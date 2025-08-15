@@ -26,7 +26,7 @@ ob_start();
     </div>
     <div class="col-md-4 text-end">
         <div class="btn-group" role="group">
-            <a href="/warehouse/create" class="btn btn-info">
+            <a href="<?= url('/warehouse/create') ?>" class="btn btn-info">
                 <i class="fas fa-plus me-2"></i>
                 Nuevo Producto
             </a>
@@ -61,7 +61,7 @@ ob_start();
                 <i class="fas fa-search"></i>
             </button>
             <?php if ($search || $filter): ?>
-                <a href="/warehouse" class="btn btn-outline-secondary ms-2">
+                <a href="<?= url('/warehouse') ?>" class="btn btn-outline-secondary ms-2">
                     <i class="fas fa-times"></i>
                 </a>
             <?php endif; ?>
@@ -197,17 +197,17 @@ ob_start();
                                 </td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a href="/warehouse/view?id=<?= $product['id'] ?>" 
+                                        <a href="<?= url('/warehouse/view?id=' . $product['id']) ?>" 
                                            class="btn btn-outline-info" 
                                            title="Ver detalles">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="/warehouse/movement?id=<?= $product['id'] ?>" 
+                                        <a href="<?= url('/warehouse/movement?id=' . $product['id']) ?>" 
                                            class="btn btn-outline-warning" 
                                            title="Movimiento">
                                             <i class="fas fa-exchange-alt"></i>
                                         </a>
-                                        <a href="/warehouse/edit?id=<?= $product['id'] ?>" 
+                                        <a href="<?= url('/warehouse/edit?id=' . $product['id']) ?>" 
                                            class="btn btn-outline-primary" 
                                            title="Editar">
                                             <i class="fas fa-edit"></i>
@@ -238,7 +238,7 @@ ob_start();
                         Comience agregando productos a su inventario.
                     <?php endif; ?>
                 </p>
-                <a href="/warehouse/create" class="btn btn-info">
+                <a href="<?= url('/warehouse/create') ?>" class="btn btn-info">
                     <i class="fas fa-plus me-2"></i>
                     Agregar Primer Producto
                 </a>

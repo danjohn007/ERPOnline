@@ -7,8 +7,8 @@ ob_start();
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="/customers">Clientes</a></li>
+        <li class="breadcrumb-item"><a href="<?= url('/dashboard') ?>">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="<?= url('/customers') ?>">Clientes</a></li>
         <li class="breadcrumb-item active">Nuevo Cliente</li>
     </ol>
 </nav>
@@ -23,7 +23,7 @@ ob_start();
         <p class="text-muted">Registre un nuevo cliente en el sistema</p>
     </div>
     <div class="col-md-4 text-end">
-        <a href="/customers" class="btn btn-outline-secondary">
+        <a href="<?= url('/customers') ?>" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left me-2"></i>
             Volver a la Lista
         </a>
@@ -278,7 +278,7 @@ ob_start();
                         <div class="col-12">
                             <hr>
                             <div class="d-flex justify-content-between">
-                                <a href="/customers" class="btn btn-outline-secondary">
+                                <a href="<?= url('/customers') ?>" class="btn btn-outline-secondary">
                                     <i class="fas fa-times me-2"></i>
                                     Cancelar
                                 </a>
