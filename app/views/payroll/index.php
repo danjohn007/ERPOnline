@@ -7,7 +7,7 @@ ob_start();
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="<?= url('/dashboard') ?>">Dashboard</a></li>
         <li class="breadcrumb-item active">
             <i class="fas fa-users-cog me-1"></i>
             Nómina/RRHH
@@ -35,7 +35,7 @@ ob_start();
                     <strong>Próximamente:</strong> Este módulo estará disponible en una futura actualización del sistema.
                 </div>
                 <div class="mt-4">
-                    <a href="/dashboard" class="btn btn-primary">
+                    <a href="<?= url('/dashboard') ?>" class="btn btn-primary">
                         <i class="fas fa-arrow-left me-2"></i>
                         Volver al Dashboard
                     </a>

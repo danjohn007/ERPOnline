@@ -50,7 +50,7 @@ ob_start();
                 </div>
             </div>
             <div class="card-footer bg-transparent">
-                <a href="/customers" class="btn btn-sm btn-outline-primary">
+                <a href="<?= url('/customers') ?>" class="btn btn-sm btn-outline-primary">
                     <i class="fas fa-eye me-1"></i>
                     Ver detalles
                 </a>
@@ -71,7 +71,7 @@ ob_start();
                 </div>
             </div>
             <div class="card-footer bg-transparent">
-                <a href="/suppliers" class="btn btn-sm btn-outline-success">
+                <a href="<?= url('/suppliers') ?>" class="btn btn-sm btn-outline-success">
                     <i class="fas fa-eye me-1"></i>
                     Ver detalles
                 </a>
@@ -92,7 +92,7 @@ ob_start();
                 </div>
             </div>
             <div class="card-footer bg-transparent">
-                <a href="/warehouse" class="btn btn-sm btn-outline-info">
+                <a href="<?= url('/warehouse') ?>" class="btn btn-sm btn-outline-info">
                     <i class="fas fa-eye me-1"></i>
                     Ver detalles
                 </a>
@@ -118,7 +118,7 @@ ob_start();
             </div>
             <div class="card-footer bg-transparent">
                 <?php if ($stats['bajo_stock'] > 0): ?>
-                    <a href="/warehouse?filter=low_stock" class="btn btn-sm btn-outline-warning">
+                    <a href="<?= url('/warehouse?filter=low_stock') ?>" class="btn btn-sm btn-outline-warning">
                         <i class="fas fa-eye me-1"></i>
                         Ver productos
                     </a>
@@ -143,7 +143,7 @@ ob_start();
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <a href="/customers/create" class="btn btn-outline-primary w-100 p-3">
+                        <a href="<?= url('/customers/create') ?>" class="btn btn-outline-primary w-100 p-3">
                             <i class="fas fa-user-plus d-block mb-2" style="font-size: 2rem;"></i>
                             <strong>Nuevo Cliente</strong>
                             <br>
@@ -151,7 +151,7 @@ ob_start();
                         </a>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <a href="/suppliers/create" class="btn btn-outline-success w-100 p-3">
+                        <a href="<?= url('/suppliers/create') ?>" class="btn btn-outline-success w-100 p-3">
                             <i class="fas fa-truck-loading d-block mb-2" style="font-size: 2rem;"></i>
                             <strong>Nuevo Proveedor</strong>
                             <br>
@@ -159,7 +159,7 @@ ob_start();
                         </a>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <a href="/warehouse/create" class="btn btn-outline-info w-100 p-3">
+                        <a href="<?= url('/warehouse/create') ?>" class="btn btn-outline-info w-100 p-3">
                             <i class="fas fa-box-open d-block mb-2" style="font-size: 2rem;"></i>
                             <strong>Nuevo Producto</strong>
                             <br>

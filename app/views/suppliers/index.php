@@ -7,7 +7,7 @@ ob_start();
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="<?= url('/dashboard') ?>">Dashboard</a></li>
         <li class="breadcrumb-item active">
             <i class="fas fa-truck me-1"></i>
             Proveedores

@@ -7,7 +7,7 @@ ob_start();
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="<?= url('/dashboard') ?>">Dashboard</a></li>
         <li class="breadcrumb-item active">
             <i class="fas fa-users me-1"></i>
             Clientes
@@ -25,7 +25,7 @@ ob_start();
         <p class="text-muted">Administre la información de sus clientes y relaciones comerciales</p>
     </div>
     <div class="col-md-4 text-end">
-        <a href="/customers/create" class="btn btn-primary">
+        <a href="<?= url('/customers/create') ?>" class="btn btn-primary">
             <i class="fas fa-plus me-2"></i>
             Nuevo Cliente
         </a>
@@ -45,7 +45,7 @@ ob_start();
                 <i class="fas fa-search"></i>
             </button>
             <?php if ($search): ?>
-                <a href="/customers" class="btn btn-outline-secondary ms-2">
+                <a href="<?= url('/customers') ?>" class="btn btn-outline-secondary ms-2">
                     <i class="fas fa-times"></i>
                 </a>
             <?php endif; ?>
@@ -151,12 +151,12 @@ ob_start();
                                 </td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a href="/customers/view?id=<?= $customer['id'] ?>" 
+                                        <a href="<?= url('/customers/view?id=' . $customer['id']) ?>" 
                                            class="btn btn-outline-info" 
                                            title="Ver detalles">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="/customers/edit?id=<?= $customer['id'] ?>" 
+                                        <a href="<?= url('/customers/edit?id=' . $customer['id']) ?>" 
                                            class="btn btn-outline-primary" 
                                            title="Editar">
                                             <i class="fas fa-edit"></i>
@@ -185,7 +185,7 @@ ob_start();
                         Comience agregando su primer cliente al sistema.
                     <?php endif; ?>
                 </p>
-                <a href="/customers/create" class="btn btn-primary">
+                <a href="<?= url('/customers/create') ?>" class="btn btn-primary">
                     <i class="fas fa-plus me-2"></i>
                     Agregar Primer Cliente
                 </a>
